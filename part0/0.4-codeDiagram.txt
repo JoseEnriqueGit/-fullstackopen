@@ -1,0 +1,29 @@
+title 0.4 Exer
+
+note over browser:
+Client click on submit button, next the browser generates a post request.
+The text is Hola mundo desde RD.
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+then this text is added to the json list and redirect browser to notes page.
+end note
+
+server-->browser: Redirect to /exampleapp/notes location (status code 302)
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+
+
+server-->browser: main.js
+
+note over browser:
+After the browser loads the js file, the sent text will be seen in the HTML
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: {content: "Hola mundo desde RD", date: "2022-08-02T21:20:00.790Z"}
