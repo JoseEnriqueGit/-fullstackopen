@@ -1,0 +1,15 @@
+title 0.6 Exer
+
+note over browser:
+In this case, when the user clicks the submit button,
+the page is not reloaded thanks to the e.preventDefault.
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+The data was sent with an HTTP POST 
+request and the data type will be JSON.
+end note
+
+server-->browser: {content: "Hola mundo desde RD en ASP", date: "2022-08-03T00:44:52.006Z"}, {message: "note created"}, message: "note created"
